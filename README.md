@@ -8,7 +8,7 @@ Use the following `docker-compose.yml` and set TZ, USER_ID, and GROUP_ID in `.en
 
 ```
 vorta:
-    image: marklambert/vorta
+    image: ghcr.io/borgbase/vorta-docker:latest
     container_name: vorta
     hostname: storage-vorta
     volumes:

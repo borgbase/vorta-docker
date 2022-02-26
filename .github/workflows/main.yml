@@ -24,17 +24,16 @@ jobs:
     - name: Build container image
       run: |
         docker build \
-        --tag ghcr.io/$GITHUB_ACTOR/vorta:$(echo $GITHUB_SHA | head -c7) \
-        --tag ghcr.io/$GITHUB_ACTOR/vorta:latest \
+        --tag ghcr.io/borgbase/vorta-docker:$(echo $GITHUB_SHA | head -c7) \
+        --tag ghcr.io/borgbase/vorta-docker:latest \
         .
 
     - name: Container registry login
-      run: >-
-        echo "${{ secrets.GITHUB_TOKEN }}"
-        | docker login -u "${{ github.actor }}" --password-stdin ghcr.io
+      run: |
+        echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
       
     - name: Push image to GitHub
       if: github.ref == 'refs/heads/main'
       run: |
-        docker push ghcr.io/$GITHUB_ACTOR/vorta:$(echo $GITHUB_SHA | head -c7)
-        docker push ghcr.io/$GITHUB_ACTOR/vorta:latest
+        docker push ghcr.io/borgbase/vorta-docker:$(echo $GITHUB_SHA | head -c7)
+        docker push ghcr.io/borgbase/vorta-docker:latest
