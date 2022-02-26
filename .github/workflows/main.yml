@@ -1,10 +1,9 @@
 on:
   push:
-    branches:
-      - main
+  pull_request:
+  workflow_dispatch:
 
 jobs:
-
   build:
     name: Build, push, and deploy
     runs-on: ubuntu-latest
@@ -26,6 +25,7 @@ jobs:
         | docker login -u "${{ github.actor }}" --password-stdin ghcr.io
       
     - name: Push image to GitHub
+      if: github.ref == 'refs/heads/main'
       run: |
         docker push ghcr.io/$GITHUB_ACTOR/vorta:$(echo $GITHUB_SHA | head -c7)
         docker push ghcr.io/$GITHUB_ACTOR/vorta:latest
