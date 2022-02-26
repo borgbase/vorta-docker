@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
 
@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-    - name: Checkout master
+    - name: Checkout
       uses: actions/checkout@v2
 
     - name: Build container image
       run: |
-        docker build --build-arg DATABASE_TYPE=mysql \
+        docker build \
         --tag ghcr.io/$GITHUB_ACTOR/vorta:$(echo $GITHUB_SHA | head -c7) \
         --tag ghcr.io/$GITHUB_ACTOR/vorta:latest \
         .
