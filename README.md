@@ -4,8 +4,7 @@ Run Vorta from Docker.
 
 ## Usage
 
-Use the following `docker-compose.yml` and set TZ, USER_ID, and GROUP_ID in `.env`.
-
+Using `docker-compose.yml`: (set TZ, USER_ID, and GROUP_ID in `.env`.)
 ```
 vorta:
     image: ghcr.io/borgbase/vorta-docker:latest
@@ -20,6 +19,17 @@ vorta:
     restart: unless-stopped
     env_file:
       - ./.env
+```
+
+
+Using rootless Podman:
+```
+$ mkdir config
+$ podman run -it --rm -v ./config:/config \
+    -p 5900:5900  \
+    -e USER_ID=1028 -e GROUP_ID=100 \
+    --uidmap=0:1:1028 --uidmap=1028:0:1 --uidmap=1029:1029:64507 \
+    ghcr.io/borgbase/vorta-docker:latest
 ```
 
 ## Discussion and Support
