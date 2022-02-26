@@ -5,7 +5,7 @@ RUN apk upgrade --no-cache
 RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs libacl openssl qt5-qtbase py3-bcrypt py3-pynacl py3-peewee py3-psutil py3-wheel py3-cryptography
 
 ## Buld requirements which are deleted in same transaction so they don't impact image
-RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev zstd-dev acl-dev lz4-dev build-base qt5-qtbase-dev fuse-dev && \
+RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv py3-pkgconfig openssl-dev zstd-dev acl-dev lz4-dev build-base qt5-qtbase-dev fuse-dev && \
     pip3 install borgbackup vorta && \
     del-pkg build-dependencies
 
