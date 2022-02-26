@@ -6,7 +6,7 @@ RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs
 
 ## Buld requirements which are deleted in same transaction so they don't impact image
 RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev zstd-dev acl-dev lz4-dev build-base qt5-qtbase-dev fuse-dev && \
-    pip3 install pkgconfig  # TODO: could also use Alpine community package py3-pkgconfig
+    pip3 install pkgconfig  # TODO: could also use Alpine community package py3-pkgconfig \
     pip3 install borgbackup vorta && \
     del-pkg build-dependencies
 
