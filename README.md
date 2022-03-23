@@ -48,6 +48,8 @@ There are 3 levels of permissions that may need to be granted depending mostly o
 - `--cap-add SYS_ADMIN --security-opt apparmor=unconfined` grants slightly more permissions if required.
 - `--privileged` makes the container a *root* superuser that can do **_anything_. DON'T RUN WITH THIS UNLESS RESTORING**
 
+You can mount an archive in Vorta and then exec into your container on the command line with something along the lines of `docker exec -it --user app vorta sh` to access the mounted directory and archive.  It will not be accessible outside the Docker container.
+
 
 ## Discussion and Support
 
