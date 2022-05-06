@@ -1,9 +1,8 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.12
+FROM jlesage/baseimage-gui:alpine-3.15
 
 RUN apk upgrade --no-cache
-RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs libacl openssl qt5-qtbase py3-bcrypt py3-pynacl py3-peewee py3-psutil py3-wheel py3-cryptography && \
-    add-pkg fuse3 fuse3-libs
+RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs libacl openssl qt5-qtbase py3-bcrypt py3-pynacl py3-peewee py3-psutil py3-wheel py3-cryptography fuse3 fuse3-libs
 
 ## Buld requirements which are deleted in same transaction so they don't impact image
 RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev zstd-dev acl-dev lz4-dev build-base qt5-qtbase-dev fuse-dev fuse3-dev && \
