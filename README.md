@@ -1,6 +1,7 @@
 # Vorta-Docker
 
 Run Vorta from Docker.
+Currently using Vorta 0.8.5 release
 
 ## Usage
 
