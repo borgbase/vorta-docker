@@ -1,8 +1,8 @@
 # Pull base image.
-FROM jlesage/baseimage-gui:alpine-3.15
+FROM jlesage/baseimage-gui:alpine-3.16-v4
 
 RUN apk upgrade --no-cache
-RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs libacl openssl qt5-qtbase py3-bcrypt py3-pynacl py3-peewee py3-psutil py3-wheel py3-cryptography fuse3 fuse3-libs
+RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt5 zstd-libs lz4-libs libacl openssl qt5-qtbase qt5-qttools qt5-qtbase-x11 py3-bcrypt py3-pynacl py3-peewee py3-psutil py3-wheel py3-cryptography fuse3 fuse3-libs mesa-dri-swrast libxext librsvg cairo
 
 ## Buld requirements which are deleted in same transaction so they don't impact image
 RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev zstd-dev acl-dev lz4-dev build-base qt5-qtbase-dev fuse-dev fuse3-dev && \
@@ -12,7 +12,7 @@ RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev 
 
 # Copy the start script.
 COPY startapp.sh /startapp.sh
-COPY init.sh /etc/cont-init.d/
+COPY 50-init.sh /etc/cont-init.d/
 
 # don't run as root
 ENV USER_ID=1028
