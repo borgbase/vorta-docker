@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv sh
+#!/bin/sh
 # Make sure mandatory directories exist.
 mkdir -p /config/xdg/config/autostart
 mkdir -p /config/xdg/cache 
