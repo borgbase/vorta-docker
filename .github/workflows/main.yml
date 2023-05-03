@@ -23,6 +23,7 @@ jobs:
 
     - name: Build container image
       run: |
+        DOCKER_BUILDKIT=1 \
         docker build \
         --tag ghcr.io/borgbase/vorta-docker:$(echo $GITHUB_SHA | head -c7) \
         --tag ghcr.io/borgbase/vorta-docker:latest \
