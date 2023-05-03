@@ -9,8 +9,8 @@ RUN add-pkg --virtual build-dependencies python3-dev py3-virtualenv openssl-dev 
     pip3 install 'borgbackup[fuse]' vorta pyfuse3 && \
     del-pkg build-dependencies
 
-# Copy the start script.
-COPY rootfs/ /
+# Copy the start script and force permissions just in case
+COPY --chmod=755 rootfs/ /
 
 # don't run as root
 ENV USER_ID=1028
