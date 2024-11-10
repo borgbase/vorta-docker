@@ -1,7 +1,7 @@
 # Vorta-Docker
 
 Run Vorta from Docker.
-Currently using Vorta 0.9.1 release on jlesage/baseimage-gui:alpine-3.19-v4 image
+Currently using Vorta 0.10.0 release on jlesage/baseimage-gui:alpine-3.20-v4 image
 
 ## Usage
 
