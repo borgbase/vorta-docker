@@ -8,6 +8,11 @@ RUN add-pkg --virtual build-dependencies py3-pkgconfig python3-dev py3-virtualen
 RUN    pip3 install --break-system-packages borgbackup vorta pyfuse3 
 RUN    del-pkg build-dependencies
 
+# Generate and install favicons.
+RUN \
+    APP_ICON_URL=hhttps://files.qmax.us/vorta/vorta-512px.png && \
+    install_app_icon.sh "$APP_ICON_URL"
+
 # Copy the start script and force permissions just in case
 COPY --chmod=755 rootfs/ /
 
