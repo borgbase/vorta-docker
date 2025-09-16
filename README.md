@@ -1,7 +1,8 @@
 # Vorta-Docker
 
 Run Vorta from Docker.
-Currently using Vorta 0.10.3 release on jlesage/baseimage-gui:alpine-3.20-v4 image
+Currently using Vorta 0.10.3 release on jlesage/baseimage-gui:alpine-3.22-v4 image
+Latest version includes embedded Firefox to view help.  File links will not work but logs have been redirected and will appear in Docker logs.
 
 ## Usage
 
