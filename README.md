@@ -1,7 +1,7 @@
 # Vorta-Docker
 
 Run Vorta from Docker.
-Currently using Vorta 0.11.4 release with Borg 1.4.4 on jlesage/baseimage-gui:alpine-3.22-v4 image
+Currently using Vorta 0.11.5 release with Borg 1.4.4 on jlesage/baseimage-gui:alpine-3.22-v4 image
 Latest version includes embedded Firefox to view help links in UI.  File links in the UI will not work but logs have been redirected and will appear in Docker logs.
 
 ## Usage
