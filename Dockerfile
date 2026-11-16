@@ -9,7 +9,7 @@ RUN add-pkg openssh-client rsync fuse python3 py3-pip py3-qt6 zstd-libs lz4-libs
     ## Vorta 0.12 requires pyqt3 newer that what is in alpine 3.24. Tried building pyqt6 from source but it was a nightmare. So instead use older version.
 RUN add-pkg --virtual build-dependencies py3-pkgconfig python3-dev openssl-dev zstd-dev acl-dev lz4-dev build-base qt6-qtbase-dev fuse-dev fuse3-dev xxhash-dev && \ 
     pip3 install --break-system-packages  borgbackup pyfuse3 && \
-    pip3 install --break-system-packages --no-deps vorta && \
+    pip3 install --break-system-packages vorta && \
     del-pkg build-dependencies
 
 # Copy the start script and force permissions just in case
